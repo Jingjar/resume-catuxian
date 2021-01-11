@@ -1,0 +1,86 @@
+body{
+    background:#ccc;
+}
+header a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+}
+.container{
+    box-shadow:  1px 1px 3px black
+}
+li{
+    line-height: 2rem;
+}
+/*NavBar*/
+.navbar{
+    background-color: #f8f9fa;
+}
+
+/*標題區*/
+
+/*學經歷*/
+.list div{
+    border-left: 2px solid black;
+    position: relative;
+}
+.list h4{
+    font-weight: 900;
+}
+.list h5{
+    font-weight:600
+}
+.list div::before{
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+    left: -6.5px;
+}
+/*技能*/
+.skill:hover{ 
+    box-shadow: 0 0 5px black;
+    transform: translateY(-10px);
+    transition: 0.5s;
+}
+
+/*作品集*/
+.myWork{
+    position: relative;
+    margin-bottom: 5px;
+}
+.myWork:hover{
+    box-shadow: 0px 0px 5px black;
+}
+.myWork img{
+    width: 300px;
+    height: 300px;
+}
+.myWork div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: 0.5s;
+    color: white;
+}
+.myWork div:hover{
+    opacity: 1;
+}
+
+
+/* 頁尾 */
+footer{
+    margin: auto;
+}
+

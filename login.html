@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+    <link rel="stylesheet" href="plugin/bootstrap.min.css">
+    <link rel="stylesheet" href="plugin/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://kit.fontawesome.com/9bb4944e3f.js" crossorigin="anonymous"></script>
+    <script src="plugin/jquery-3.5.1.min.js"></script>
+    <script src="plugin/bootstrap.bundle.min.js"></script>
+</head>
+<body class="row">
+    <div class="container text-center col-md-6 col-8 mt-5 py-5 row animate__animated animate__fadeInDown row mx-auto bg-light">
+        <h3 class="text-center col-12">登入頁面</h3>
+        <form action="api/login.php" method="post" class="col-12">   
+            <div class="my-3">
+                <div class="mb-3">帳號：</div>
+                <input class="col-sm-12 col-md-6" type="acc" name="acc" placeholder="jack">
+            </div>
+            <div class="my-3">
+                <div class="mb-3">密碼：</div>
+                <input class="col-sm-12 col-md-6" type="password" name="pw" placeholder="1234">
+            </div>
+            <input type="submit" value="登入">
+            <a href="index.html" class="d-block mt-2">返回</a>
+        </form>
+    </div>
+</body>
+</html>
