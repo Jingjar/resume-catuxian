@@ -73,19 +73,16 @@ include_once "base.php";
                 <div class="pl-2">
                     <h4>工作經歷</h4>
                     <?php
-                    $exps = $Exp_t->count();
-                    for ($i = 1; $i <= $exps; $i++) {
-                        $start_work = substr($Exp_t->find($i)['start'], 0, -3);
-                        $end_work = substr($Exp_t->find($i)['end'], 0, -3);
-
-                        $title = $Exp_t->find($i)['title'];
+                    $exps = $Exp_t->all(['sh' => 1]);
+                    foreach ($exps as $exp) {
+                        $start_work = substr($exp['start'], 0, -3);
+                        $end_work = substr($exp['end'], 0, -3);
+                        $title = $exp['title'];
                         echo "<h5>{$title}，{$start_work} - {$end_work}";
 
-                        $items = $Exp_i->count(['title_id' => $title]);
-                        $item = $Exp_i->all(['title_id' => $title]);
-
-                        for ($j = 0; $j < $items; $j++) {
-                            echo "<li>{$item[$j]['li']}</li>";
+                        $items = $Exp_i->all(['title_id' => $title]);
+                        foreach ($items as $item) {
+                            echo "<li>{$item['li']}</li>";
                         }
                     }
                     ?>
@@ -93,14 +90,14 @@ include_once "base.php";
                 <div class="pl-2">
                     <h4>學歷</h4>
                     <?php
-                    $exps_e = $Exp_e->count();
-                    for ($i = 1; $i <= $exps_e; $i++) {
-                        $start_edu = substr($Exp_e->find($i)['start'], 0, -3);
-                        $end_edu = substr($Exp_e->find($i)['end'], 0, -3);
-
-                        $title = $Exp_e->find($i)['edu'];
-                        echo "<h5>{$title}，{$start_edu} - {$end_edu}</h5>";
+                    
+                    $exps_e=$Exp_e->all();
+                    foreach($exps_e as $exp_e){
+                        $start_edu = substr($exp_e['start'], 0, -3);
+                        $end_edu = substr($exp_e['end'], 0, -3);
+                        echo "<h5>{$exp_e['edu']}，{$start_edu} - {$end_edu}</h5>";
                     }
+
                     ?>
 
                 </div>
@@ -111,14 +108,14 @@ include_once "base.php";
             <h2><b>技能</b></h2>
             <div class="row justify-content-around">
                 <?php
-                $skills=$Skills->all();
+                $skills = $Skills->all();
                 foreach ($skills as $skill) {
                 ?>
                     <div class="card col-md-5 m-2 skill">
-                        <img src="media/skills/<?=$skill['img']?>" class="card-img-top">
+                        <img src="media/skills/<?= $skill['img'] ?>" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title border-bottom"><?=$skill['title'];?></h5>
-                            <p class="card-text"><?=$skill['text'];?></p>
+                            <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
+                            <p class="card-text"><?= $skill['text']; ?></p>
                         </div>
                     </div>
                 <?php
@@ -133,18 +130,20 @@ include_once "base.php";
                 <h2><b>作品集</b></h2>
                 <div class="row d-flex justify-content-around">
                     <?php
-                        $works=$Works->all();
-                        foreach($works as $work){
+                    $works = $Works->all();
+                    foreach ($works as $work) {
                     ?>
-                    <div class="myWork">
-                        <img src="media/works/<?=$work['img'];?>">
-                        <div>
-                            <h4><?=$work['title'];?></h4>
-                            <p><?=$work['text'];?></p>
-                        </div>
-                    </div>
+                        <a href="<?=$work['href'];?>" target="_blank">
+                            <div class="myWork">
+                                <img src="media/works/<?= $work['img']; ?>">
+                                <div>
+                                    <h4><?= $work['title']; ?></h4>
+                                    <p><?= $work['text']; ?></p>
+                                </div>
+                            </div>
+                        </a>
                     <?php
-                        }
+                    }
                     ?>
                 </div>
             </div>
@@ -152,12 +151,12 @@ include_once "base.php";
         <!-- 聯絡我 -->
         <footer id="contact" class="text-center">
             <?php
-                $conect=$Contact->find(1);
+            $conect = $Contact->find(1);
             ?>
             <h5><b>聯絡我</b></h5>
-            E-mail：<a href="mailto:<?=$conect['email'];?>"><?=$conect['email'];?></a>
+            E-mail：<a href="mailto:<?= $conect['email']; ?>"><?= $conect['email']; ?></a>
             <br>
-            連絡電話：<?=$conect['phone'];?><br>
+            連絡電話：<?= $conect['phone']; ?><br>
             <small class="text-muted mb-1">Copyright © 2021 <a href="login.html">YE,YU-XIAN</a> all rights
                 reserved.</small>
         </footer>
