@@ -4,14 +4,21 @@
     $addstr=[
         'img'=>'新增大頭照',
         'about'=>'新增關於我',
-        'exp'=>'新增學經歷',
+        'exp'=>'新增經歷',
+        'exp_e'=>'新增學歷',
         'skills'=>'新增技能',
         'works'=>'新增作品集',
         'contact'=>'新增聯絡我'
     ];
     //判斷傳來的是何table
     $tables=[
-        'img'=>'resume_img'
+        'img'=>'resume_img',
+        'about'=>'resume_about',
+        'exp'=>'resume_exp_title',
+        'exp_e'=>'resume_exp_edu',
+        'skills'=>'resume_skills',
+        'works'=>'resume_works',
+        'contact'=>'resume_contact'
     ];
     $Login=new DB("resume_login");
     $Img=new DB("resume_img");
@@ -105,7 +112,7 @@
             }else{
                 $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values ('".implode("','",$arr)."')";
             }
-            // echo $sql;
+            echo $sql;
             return $this->pdo->exec($sql);
         }
 

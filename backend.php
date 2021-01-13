@@ -2,6 +2,7 @@
 include_once "base.php";
 $do = isset($_GET['do']) ? $_GET['do'] : "img";
 $file = "backend/" . $do . ".php";
+// echo $do;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,17 +21,24 @@ $file = "backend/" . $do . ".php";
 <body>
 <a href="?do=img">我的大頭貼</a>
 <a href="?do=about">關於我</a>
-<a href="?do=exp">學經歷</a>
+<a href="?do=exp">經歷</a>
+<a href="?do=exp_e">學歷</a>
 <a href="?do=skills">技能</a>
 <a href="?do=works">作品集</a>
 <a href="?do=contact">聯絡我</a>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal">
+<?php
+    if($do!='contact'){
+?>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exp">
     <?= $addstr[$do]; ?>
 </button>
+<?php        
+    }
+?>
 
 <!-- Modal -->
-<div class="modal fade" id="Modal" tabindex="-1">
+<div class="modal fade" id="exp" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -44,10 +52,6 @@ $file = "backend/" . $do . ".php";
                 include_once "modal/{$do}.php";
                 ?>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
         </div>
     </div>
 </div>
@@ -60,7 +64,11 @@ $file = "backend/" . $do . ".php";
     }
     ?>
     <div>
+    <div>
+    <input type="hidden" value="<?=$do;?>" name="table">
         <button type="submit">送出</button>
+        <button type="reset">重設</button>
+    </div>
 </form>
         <a href="api/logout.php">登出</a>
     </div>

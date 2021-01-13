@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-01-12 16:59:06
+-- 產生時間： 2021-01-13 17:24:44
 -- 伺服器版本： 10.4.17-MariaDB
 -- PHP 版本： 7.4.13
 
@@ -38,7 +38,7 @@ CREATE TABLE `resume_about` (
 --
 
 INSERT INTO `resume_about` (`id`, `about`, `sh`) VALUES
-(1, '大家好，我是葉昱顯。', 1);
+(20, '大家好，我是葉遇險\r\n', 1);
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,7 @@ CREATE TABLE `resume_contact` (
 --
 
 INSERT INTO `resume_contact` (`id`, `email`, `phone`) VALUES
-(1, '123@mail.com', '0912-123-123');
+(1, '1234@mail.com', '0912-123-1234');
 
 -- --------------------------------------------------------
 
@@ -68,8 +68,8 @@ INSERT INTO `resume_contact` (`id`, `email`, `phone`) VALUES
 CREATE TABLE `resume_exp_edu` (
   `id` int(11) NOT NULL,
   `edu` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '標題',
-  `start` date NOT NULL COMMENT '開始時間',
-  `end` date NOT NULL COMMENT '結束時間',
+  `start_e` date NOT NULL COMMENT '開始時間',
+  `end_e` date NOT NULL COMMENT '結束時間',
   `sh` tinyint(1) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -77,9 +77,9 @@ CREATE TABLE `resume_exp_edu` (
 -- 傾印資料表的資料 `resume_exp_edu`
 --
 
-INSERT INTO `resume_exp_edu` (`id`, `edu`, `start`, `end`, `sh`) VALUES
-(1, '學歷1', '2020-10-06', '2021-01-13', 1),
-(2, '學歷2', '2020-12-07', '2021-01-13', 1);
+INSERT INTO `resume_exp_edu` (`id`, `edu`, `start_e`, `end_e`, `sh`) VALUES
+(1, '學歷1', '2021-01-04', '2021-01-04', 1),
+(9, '學歷4', '2021-01-06', '2021-01-06', 1);
 
 -- --------------------------------------------------------
 
@@ -121,8 +121,9 @@ CREATE TABLE `resume_exp_title` (
 --
 
 INSERT INTO `resume_exp_title` (`id`, `title`, `start`, `end`, `sh`) VALUES
-(1, '工作經歷1', '2021-01-05', '2021-01-13', 1),
-(2, '工作經歷2', '2021-01-05', '2021-01-13', 1);
+(1, '工作經歷11', '2021-01-04', '2021-01-13', 0),
+(7, '工作經歷33', '2020-12-06', '2020-12-29', 1),
+(8, '工作經歷4', '2020-12-07', '2021-01-12', 1);
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,7 @@ CREATE TABLE `resume_img` (
 --
 
 INSERT INTO `resume_img` (`id`, `img`, `text`, `sh`) VALUES
-(1, 'hello.png', '卓越科技大學校園資訊系統', 1);
+(1, 'hello.png', '我是昱顯', 1);
 
 -- --------------------------------------------------------
 
@@ -174,16 +175,18 @@ CREATE TABLE `resume_skills` (
   `id` int(11) UNSIGNED NOT NULL,
   `img` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sh` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `resume_skills`
 --
 
-INSERT INTO `resume_skills` (`id`, `img`, `title`, `text`) VALUES
-(1, 'frontend.jpg', '前端技能', 'html、css、JavaScript\r\n'),
-(2, 'frontend.jpg', '前端技能2', 'html、css、JavaScript\r\n');
+INSERT INTO `resume_skills` (`id`, `img`, `title`, `text`, `sh`) VALUES
+(1, 'frontend.jpg', '前端技能', 'html、css、JavaScript', 1),
+(2, 'frontend.jpg', '前端技能222', 'html、css、JavaScript', 1),
+(11, 'PvZ 2_Screenshot_2021.01.05_20.52.45.jpg', '植物大戰殭屍', '豌豆射手', 1);
 
 -- --------------------------------------------------------
 
@@ -195,16 +198,17 @@ CREATE TABLE `resume_works` (
   `id` int(11) UNSIGNED NOT NULL,
   `img` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `href` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `resume_works`
 --
 
-INSERT INTO `resume_works` (`id`, `img`, `title`, `text`) VALUES
-(1, 'work1.jpg', '今天開始來記帳', '因為想要記帳，所以來寫一個記帳的網站'),
-(2, 'work1.jpg', '心動時刻', '再次心動動');
+INSERT INTO `resume_works` (`id`, `img`, `title`, `text`, `href`) VALUES
+(1, 'work1.jpg', '今天開始來記帳1', '1因為想要記帳，所以來寫一個記帳的網站', '1http://220.128.133.15/s1090413/account_book/'),
+(2, 'work1.jpg', '心動時刻1', '1再次心動動', '1https://catuxian.github.io/DokiTime/');
 
 --
 -- 已傾印資料表的索引
@@ -272,7 +276,7 @@ ALTER TABLE `resume_works`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_about`
 --
 ALTER TABLE `resume_about`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_contact`
@@ -284,7 +288,7 @@ ALTER TABLE `resume_contact`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_exp_edu`
 --
 ALTER TABLE `resume_exp_edu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_exp_items`
@@ -296,13 +300,13 @@ ALTER TABLE `resume_exp_items`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_exp_title`
 --
 ALTER TABLE `resume_exp_title`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_img`
 --
 ALTER TABLE `resume_img`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_login`
@@ -314,13 +318,13 @@ ALTER TABLE `resume_login`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_skills`
 --
 ALTER TABLE `resume_skills`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `resume_works`
 --
 ALTER TABLE `resume_works`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

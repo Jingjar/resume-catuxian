@@ -48,7 +48,7 @@ include_once "base.php";
     <div class="container text-center mt-10 bg-white p-0  ">
         <header class="my-5 pb-2 border-bottom bg-dark text-white">
             <h1 class="pt-3">I am a web developer</h1>
-            <img src="media/img/<?= $Img->find(['sh' => 1])['img']; ?>" class="rounded mx-auto d-block rounded-circle mb-2 d-block" style="width:150px;height:150px">
+            <img src="img/<?= $Img->find(['sh' => 1])['img']; ?>" class="rounded mx-auto d-block rounded-circle mb-2 d-block" style="width:150px;height:150px">
 
             <a href="https://github.com/catuxian" target="_blank">
                 <i class="fab fa-github-square fa-2x mr-2"></i>
@@ -91,10 +91,10 @@ include_once "base.php";
                     <h4>學歷</h4>
                     <?php
                     
-                    $exps_e=$Exp_e->all();
+                    $exps_e=$Exp_e->all(['sh' => 1]);
                     foreach($exps_e as $exp_e){
-                        $start_edu = substr($exp_e['start'], 0, -3);
-                        $end_edu = substr($exp_e['end'], 0, -3);
+                        $start_edu = substr($exp_e['start_e'], 0, -3);
+                        $end_edu = substr($exp_e['end_e'], 0, -3);
                         echo "<h5>{$exp_e['edu']}，{$start_edu} - {$end_edu}</h5>";
                     }
 
@@ -108,11 +108,11 @@ include_once "base.php";
             <h2><b>技能</b></h2>
             <div class="row justify-content-around">
                 <?php
-                $skills = $Skills->all();
+                $skills = $Skills->all(['sh'=>1]);
                 foreach ($skills as $skill) {
                 ?>
                     <div class="card col-md-5 m-2 skill">
-                        <img src="media/skills/<?= $skill['img'] ?>" class="card-img-top">
+                        <img src="img/<?= $skill['img'] ?>" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
                             <p class="card-text"><?= $skill['text']; ?></p>
@@ -135,7 +135,7 @@ include_once "base.php";
                     ?>
                         <a href="<?=$work['href'];?>" target="_blank">
                             <div class="myWork">
-                                <img src="media/works/<?= $work['img']; ?>">
+                                <img src="img/<?= $work['img']; ?>">
                                 <div>
                                     <h4><?= $work['title']; ?></h4>
                                     <p><?= $work['text']; ?></p>
