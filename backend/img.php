@@ -9,7 +9,7 @@
     $rows = $Img->all();
     foreach ($rows as $row) {
     ?><tr>
-            <td><img src="media/img/<?= $row['img']; ?>" style="height: 300px;"></td>
+            <td><img src="img/<?= $row['img']; ?>" style="height: 300px;"></td>
             <td><input type="text" name="text[]" value="<?= $row['text']; ?>"></td>
             <td><input type="radio" name="sh" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>></td>
             <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>">

@@ -46,5 +46,5 @@
     print_r($data);
     echo "</pre>";
     $db->save($data);
-    // to("../backend.php?do={$_POST['table']}");
+    to("../backend.php?do={$_POST['table']}");
 ?>

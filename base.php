@@ -15,6 +15,7 @@
         'img'=>'resume_img',
         'about'=>'resume_about',
         'exp'=>'resume_exp_title',
+        'exp_i'=>'resume_exp_item',
         'exp_e'=>'resume_exp_edu',
         'skills'=>'resume_skills',
         'works'=>'resume_works',
@@ -112,7 +113,7 @@
             }else{
                 $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values ('".implode("','",$arr)."')";
             }
-            echo $sql;
+            // echo $sql;
             return $this->pdo->exec($sql);
         }
 

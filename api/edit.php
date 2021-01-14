@@ -4,7 +4,17 @@
     print_r($_POST);
     echo "</pre>";
     $table=$tables[$_POST['table']];
-    echo $table;
+    // if(!empty($_POST['li'])){
+    //     $items=$Exp_i->all();
+    //     // echo "<pre>";
+    //     // print_r($items);
+    //     // echo "</pre>";
+    //     foreach($items as $item){
+    //         echo "<pre>";
+    //         print_r($item);
+    //         echo "</pre>";
+    //     }
+    // }
     $db=new DB($table);
     foreach($_POST['id'] as $key => $id){
         if(!empty($_POST['del']) && in_array($id,$_POST['del'])){
@@ -14,6 +24,7 @@
             if(!empty($_POST['text'])){
                 $row['text']=$_POST['text'][$key];
             }
+
             switch($table){
                 case "resume_contact":
                     $row['phone']=$_POST['phone'][$key];
@@ -48,9 +59,9 @@
             }
         $db->save($row);
         }
-        echo"<pre>";
-        print_r($row);
-        echo "</pre>";
+        // echo"<pre>";
+        // print_r($row);
+        // echo "</pre>";
     }
     // to("../backend.php?do={$_POST['table']}");
 ?>

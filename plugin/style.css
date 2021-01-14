@@ -1,9 +1,9 @@
 body{
     background:#ccc;
 }
-header a{
+a{
     text-decoration: none;
-    color: white;
+    color: white ;
 }
 a:hover{
     text-decoration: none;
@@ -76,6 +76,9 @@ li{
 }
 .myWork div:hover{
     opacity: 1;
+}
+.myWork a{
+    color: white;
 }
 
 

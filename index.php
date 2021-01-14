@@ -133,15 +133,15 @@ include_once "base.php";
                     $works = $Works->all();
                     foreach ($works as $work) {
                     ?>
-                        <a href="<?=$work['href'];?>" target="_blank">
+                        
                             <div class="myWork">
                                 <img src="img/<?= $work['img']; ?>">
                                 <div>
                                     <h4><?= $work['title']; ?></h4>
                                     <p><?= $work['text']; ?></p>
+                                    <a href="<?=$work['href'];?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
                                 </div>
                             </div>
-                        </a>
                     <?php
                     }
                     ?>
