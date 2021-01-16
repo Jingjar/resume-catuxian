@@ -21,7 +21,7 @@ include_once "base.php";
     <script src="plugin/slick.min.js"></script>
 </head>
 
-<body>
+<body class="text-center">
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-1">
         <a class="navbar-brand" href="index.php">Navbar</a>
@@ -61,51 +61,54 @@ include_once "base.php";
             <a href="https://codepen.io/your-work" target="_blank">
                 <i class="fab fa-codepen fa-2x"></i>
             </a>
-            <p>Taipei/Taiwan</p>
+            <p>YE,YU-XIAN</p>
         </header>
         <!-- 關於我 -->
-        <div class="border-bottom mb-2 py-5" id="about">
-            <h2><b>關於我</b></h2>
+        <div class="border-bottom py-5" id="about">
+            <h2>關於我</h2>
             <p>
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
         </div>
         <!-- 學經歷 -->
         <div class="border-bottom mb-2 py-5" id="exp">
-            <h2><b>學經歷</b></h2>
-            <div class="list text-left w-50 mx-auto">
-                <div class="pl-2">
-                    <h4>工作經歷</h4>
+
+            <div class="list w-50 mx-auto">
+                <h2 class="bg-white py-2 mb-0">學經歷</h2>
+                <div>
+                    <h4 class="py-2 mb-0">工作經歷</h4>
                     <?php
                     $exps = $Exp_t->all(['sh' => 1]);
                     foreach ($exps as $exp) {
                         $start_work = substr($exp['start'], 0, -3);
                         $end_work = substr($exp['end'], 0, -3);
                         $title = $exp['title'];
-                        echo "<h5>{$title}，{$start_work} - {$end_work}";
-
+                        echo "<h5 class='py-2 mb-0'>{$title}，{$start_work} - {$end_work}</h5>";
+                        echo "<div class='list-item mb-5 py-2'>";
                         $items = $Exp_i->all(['title_id' => $title]);
                         foreach ($items as $item) {
-                            echo "<li>{$item['li']}</li>";
+                            echo "<p>{$item['li']}</p>";
                         }
+                        echo "</div>";
                     }
                     ?>
                 </div>
-                <div class="pl-2">
-                    <h4>學歷</h4>
+                <h4 class="py-2 mb-0">學歷</h4>
+                <div class="mb-2">
                     <?php
 
                     $exps_e = $Exp_e->all(['sh' => 1]);
                     foreach ($exps_e as $exp_e) {
                         $start_edu = substr($exp_e['start_e'], 0, -3);
                         $end_edu = substr($exp_e['end_e'], 0, -3);
-                        echo "<h5>{$exp_e['edu']}，{$start_edu} - {$end_edu}</h5>";
+                        echo "<h5 class='py-2 mb-0'>{$exp_e['edu']}，{$start_edu} - {$end_edu}</h5>";
+                        echo "<img src='https://picsum.photos/150/150/?random=1' class='rounded-circle edu mb-5 bg-white'>";
                     }
 
                     ?>
-
                 </div>
             </div>
+            <div></div>
         </div>
         <!-- 技能 -->
         <div class="w-75 mx-auto mb-2 py-5" id="skills">
@@ -208,36 +211,36 @@ include_once "base.php";
                 <h2><b>作品集</b></h2>
                 <div id="carouselExampleControls" class="carousel slide my-5" data-ride="carousel">
                     <div class="carousel-inner">
-                    <?php
-                    $works = $Works->all();
-                    foreach ($works as $key => $work) {
-                        // echo $key;
-                        if ($key == 0) {
-                    ?>
-                            <div class="myWork carousel-item active">
-                                <img src="img/<?= $work['img']; ?>" class="mx-auto">
-                                <div>
-                                    <h4><?= $work['title']; ?></h4>
-                                    <p><?= $work['text']; ?></p>
-                                    <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
-                                </div>
-                            </div>
-
                         <?php
-                        } else {
+                        $works = $Works->all();
+                        foreach ($works as $key => $work) {
+                            // echo $key;
+                            if ($key == 0) {
                         ?>
-                            <div class="myWork carousel-item">
-                                <img src="img/<?= $work['img']; ?>" class="mx-auto">
-                                <div>
-                                    <h4><?= $work['title']; ?></h4>
-                                    <p><?= $work['text']; ?></p>
-                                    <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
+                                <div class="myWork carousel-item active">
+                                    <img src="img/<?= $work['img']; ?>" class="mx-auto">
+                                    <div>
+                                        <h4><?= $work['title']; ?></h4>
+                                        <p><?= $work['text']; ?></p>
+                                        <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                    <?php
+
+                            <?php
+                            } else {
+                            ?>
+                                <div class="myWork carousel-item">
+                                    <img src="img/<?= $work['img']; ?>" class="mx-auto">
+                                    <div>
+                                        <h4><?= $work['title']; ?></h4>
+                                        <p><?= $work['text']; ?></p>
+                                        <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
+                                    </div>
+                                </div>
+                        <?php
+                            }
                         }
-                    }
-                    ?>
+                        ?>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -250,22 +253,29 @@ include_once "base.php";
                 </div>
             </div>
         </div>
+        <!-- 聯絡我 -->
+        <footer id="contact" class="text-center py-5 bg-dark text-white">
+            <h5>聯絡我</h5>
+            <form>
+                <div class="form-group row text-center">
+                    <label for="inputPassword" class="col-sm-12 col-md-1 col-form-label">Password</label>
+                    <div class="col-sm-10 col-md-4 mx-auto">
+                        <input type="password" class="form-control" id="inputPassword">
+                    </div>
+                    <label for="inputPassword" class="col-sm-12 col-md-1 col-form-label">Password</label>
+                    <div class="col-sm-10 col-md-4 mx-auto">
+                        <input type="password" class="form-control" id="inputPassword">
+                    </div>
+                </div>
+            </form>
+        </footer>
     </div>
-    <!-- 聯絡我 -->
-    <footer id="contact" class="text-center">
-        <?php
-        $conect = $Contact->find(1);
-        ?>
-        <h5><b>聯絡我</b></h5>
-        E-mail：<a href="mailto:<?= $conect['email']; ?>"><?= $conect['email']; ?></a>
-        <br>
-        連絡電話：<?= $conect['phone']; ?><br>
-        <small class="text-muted mb-1">Copyright © 2021 <a href="login.html">YE,YU-XIAN</a> all rights
-            reserved.</small>
-        <a href="#myHeader" id="top" class="btn ">
-            <i class="fas fa-angle-double-up fa-2x"></i>
-        </a>
-    </footer>
+
+    <small class="text-muted mb-1">Copyright © 2021 <a href="login.html">YE,YU-XIAN</a> all rights
+        reserved.</small>
+    <a href="#myHeader" id="top" class="btn ">
+        <i class="fas fa-angle-double-up fa-2x"></i>
+    </a>
 </body>
 
 </html>
