@@ -6,9 +6,4 @@ $("document").ready(function () {
             { scrollTop: val }, 1000, "swing"
         );
     })
-    // $("#myWork").slick({
-    //     dots:true,
-    //     infinite: true,
-    //     slidesToShow: 2,
-    // });
 })

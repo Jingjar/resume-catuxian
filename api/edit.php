@@ -45,7 +45,7 @@
                     $row['end']=$_POST['end'][$key];
                     $row['sh']=(in_array($id,$_POST['sh']))?1:0;
                 break;
-                case "resume_skills":
+                case "resume_skills_frontend":
                     $row['title']=$_POST['title'][$key];
                     $row['sh']=(in_array($id,$_POST['sh']))?1:0;
                 break;

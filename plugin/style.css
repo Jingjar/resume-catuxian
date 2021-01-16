@@ -92,3 +92,15 @@ footer{
     bottom: 0;
     right: 5px;
 }
+/*RWD*/
+@media(max-width:768px){
+.myWork img{
+    width: 300px;
+    height: 300px;
+}
+}
+@media(max-width:400px){
+.myWork img{
+    width: 200px;
+    height: 200px;
+}

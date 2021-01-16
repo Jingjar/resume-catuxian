@@ -215,7 +215,7 @@ include_once "base.php";
                         if ($key == 0) {
                     ?>
                             <div class="myWork carousel-item active">
-                                <img src="img/<?= $work['img']; ?>">
+                                <img src="img/<?= $work['img']; ?>" class="mx-auto">
                                 <div>
                                     <h4><?= $work['title']; ?></h4>
                                     <p><?= $work['text']; ?></p>
@@ -227,7 +227,7 @@ include_once "base.php";
                         } else {
                         ?>
                             <div class="myWork carousel-item">
-                                <img src="img/<?= $work['img']; ?>">
+                                <img src="img/<?= $work['img']; ?>" class="mx-auto">
                                 <div>
                                     <h4><?= $work['title']; ?></h4>
                                     <p><?= $work['text']; ?></p>
@@ -250,20 +250,6 @@ include_once "base.php";
                 </div>
             </div>
         </div>
-        <footer id="contact" class="text-center">
-        <?php
-        $conect = $Contact->find(1);
-        ?>
-        <h5><b>聯絡我</b></h5>
-        E-mail：<a href="mailto:<?= $conect['email']; ?>"><?= $conect['email']; ?></a>
-        <br>
-        連絡電話：<?= $conect['phone']; ?><br>
-        <small class="text-muted mb-1">Copyright © 2021 <a href="login.html">YE,YU-XIAN</a> all rights
-            reserved.</small>
-        <a href="#myHeader" id="top" class="btn ">
-            <i class="fas fa-angle-double-up fa-2x"></i>
-        </a>
-    </footer>
     </div>
     <!-- 聯絡我 -->
     <footer id="contact" class="text-center">
