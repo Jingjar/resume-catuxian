@@ -23,7 +23,7 @@ $file = "backend/" . $do . ".php";
 <a href="?do=about">關於我</a>
 <a href="?do=exp">經歷</a>
 <a href="?do=exp_e">學歷</a>
-<a href="?do=skills">技能</a>
+<a href="?do=skill_f">技能</a>
 <a href="?do=works">作品集</a>
 <a href="?do=contact">聯絡我</a>
 <!-- Button trigger modal -->

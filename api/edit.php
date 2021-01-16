@@ -63,5 +63,5 @@
         // print_r($row);
         // echo "</pre>";
     }
-    // to("../backend.php?do={$_POST['table']}");
+    to("../backend.php?do={$_POST['table']}");
 ?>

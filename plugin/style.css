@@ -1,7 +1,7 @@
 body{
     background:#ccc;
 }
-a{
+header a{
     text-decoration: none;
     color: white ;
 }
@@ -54,13 +54,14 @@ li{
 .myWork{
     position: relative;
     margin-bottom: 5px;
+    background-color: red;
 }
 .myWork:hover{
     box-shadow: 0px 0px 5px black;
 }
 .myWork img{
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
 }
 .myWork div{
     position: absolute;
@@ -86,4 +87,8 @@ li{
 footer{
     margin: auto;
 }
-
+#top{
+    position: fixed;
+    bottom: 0;
+    right: 5px;
+}

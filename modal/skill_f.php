@@ -1,7 +1,7 @@
 <form action="api/add.php" method="post" enctype="multipart/form-data">
 <div>
     <p>新增圖片：<input type="file" name="img"></p>
-    <p>開始標題：<input type="text" name="title"></p>
+    <p>標題：<input type="text" name="title"></p>
     <p>技能介紹：<input type="text" name="text"></p>
 </div>
 <hr>
