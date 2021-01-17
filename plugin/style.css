@@ -87,7 +87,6 @@ li {
     left: 50%;
     top: -20px;
     transform: translate(-50%);
-    animation: bounce 2s ease infinite;
 }
 
 .list div {
@@ -111,7 +110,7 @@ li {
 .myWork {
     position: relative;
     margin-bottom: 5px;
-    background-color: red;
+
 }
 
 .myWork:hover {
@@ -134,6 +133,10 @@ li {
     opacity: 0;
     transition: 0.5s;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
 }
 
 .myWork div:hover {

@@ -50,7 +50,7 @@ include_once "base.php";
         </div>
     </nav>
     <div class="container text-center mt-0 mx-auto bg-white p-0 w-lg-50 w-md-75 w-sm-100">
-        <header class="my-5 pb-2 border-bottom bg-dark text-white" id="myHeader">
+        <header class="my-5 pt-5 border-bottom bg-dark text-white" id="myHeader">
             <h1 class="pt-3">I am a web developer</h1>
             <img src="img/<?= $Img->find(['sh' => 1])['img']; ?>" class="rounded mx-auto d-block rounded-circle mb-2 d-block" style="width:150px;height:150px">
 
@@ -61,11 +61,12 @@ include_once "base.php";
             <a href="https://codepen.io/your-work" target="_blank">
                 <i class="fab fa-codepen fa-2x"></i>
             </a>
+            <h2 class="py-2">葉昱顯</h2>
             <p>YE,YU-XIAN</p>
         </header>
         <!-- 關於我 -->
         <div class="border-bottom py-5" id="about">
-            <h2>關於我</h2>
+            <h2><u>關於我</u></h2>
             <p>
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
@@ -220,7 +221,7 @@ include_once "base.php";
                                 <div class="myWork carousel-item active">
                                     <img src="img/<?= $work['img']; ?>" class="mx-auto">
                                     <div>
-                                        <h4><?= $work['title']; ?></h4>
+                                        <h1><?= $work['title']; ?></h1>
                                         <p><?= $work['text']; ?></p>
                                         <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
                                     </div>
@@ -232,7 +233,7 @@ include_once "base.php";
                                 <div class="myWork carousel-item">
                                     <img src="img/<?= $work['img']; ?>" class="mx-auto">
                                     <div>
-                                        <h4><?= $work['title']; ?></h4>
+                                        <h1><?= $work['title']; ?></h1>
                                         <p><?= $work['text']; ?></p>
                                         <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
                                     </div>
@@ -254,24 +255,44 @@ include_once "base.php";
             </div>
         </div>
         <!-- 聯絡我 -->
-        <footer id="contact" class="text-center py-5 bg-dark text-white">
-            <h5>聯絡我</h5>
-            <form>
-                <div class="form-group row text-center">
-                    <label for="inputPassword" class="col-sm-12 col-md-1 col-form-label">Password</label>
-                    <div class="col-sm-10 col-md-4 mx-auto">
-                        <input type="password" class="form-control" id="inputPassword">
-                    </div>
-                    <label for="inputPassword" class="col-sm-12 col-md-1 col-form-label">Password</label>
-                    <div class="col-sm-10 col-md-4 mx-auto">
-                        <input type="password" class="form-control" id="inputPassword">
+        <footer id="contact" class="text-center py-5 bg-dark text-white container">
+            <h5 class="mb-5">聯絡我</h5>
+            <form action="" class="row text-left px-5">
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="yourName">訪客姓名</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="yourName" placeholder="您的姓名" name="Name" required>
                     </div>
                 </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="yourPhone">連絡電話</label>
+                    <div class="input-group mb-3">
+                        <input type="tel" class="form-control" id="yourPhone" placeholder="您的連絡電話" name="Phone" required>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="yourEmail">電子信箱</label>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" id="yourEmail" placeholder="您的電子信箱" name="Email" required>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    <label for="yourSubject">訊息主旨</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="yourSubject" placeholder="訊息主旨" name="Subject" required>
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <label for="yourMessage">您的訊息</label>
+                    <textarea class="form-control" id="yourMessage" rows="3" placeholder="請輸入您的訊息"></textarea>
+                </div>
+                <small class="text-muted col-12 text-center border-bottom pb-3">請如實填寫便於信件回覆，我們保證不隨意公開您的留言資訊</small>
+                <button type="submit" class="btn btn-primary mx-auto my-3">確認送出</button>
             </form>
         </footer>
     </div>
 
-    <small class="text-muted mb-1">Copyright © 2021 <a href="login.html">YE,YU-XIAN</a> all rights
+    <small class="text-muted mb-1">Copyright © 2021 <a href="login.html" style="color:#6c757d;">YE,YU-XIAN</a> all rights
         reserved.</small>
     <a href="#myHeader" id="top" class="btn ">
         <i class="fas fa-angle-double-up fa-2x"></i>
