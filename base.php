@@ -6,10 +6,7 @@
         'about'=>'新增關於我',
         'exp'=>'新增經歷',
         'exp_e'=>'新增學歷',
-        'skill_f'=>'新增前端技能',
-        'skill_b'=>'新增後端技能',
-        'skill_g'=>'新增美編技能',
-        'skill_o'=>'新增其他技能',
+        'skill'=>'新增技能',
         'works'=>'新增作品集',
         'contact'=>'新增聯絡我'
     ];
@@ -20,10 +17,7 @@
         'exp'=>'resume_exp_title',
         'exp_i'=>'resume_exp_item',
         'exp_e'=>'resume_exp_edu',
-        'skill_f'=>'resume_skills_frontend',
-        'skill_b'=>'resume_skills_backend',
-        'skill_g'=>'resume_skills_graphic',
-        'skill_o'=>'resume_skills_others',
+        'skill'=>'resume_skills',
         'works'=>'resume_works',
         'contact'=>'resume_contact'
     ];
@@ -33,10 +27,7 @@
     $Exp_t=new DB("resume_exp_title");
     $Exp_i=new DB("resume_exp_items");
     $Exp_e=new DB("resume_exp_edu");
-    $Skill_f=new DB("resume_skills_frontend");
-    $Skill_b=new DB("resume_skills_backend");
-    $Skill_g=new DB("resume_skills_graphic");
-    $Skill_o=new DB("resume_skills_others");
+    $Skill=new DB("resume_skills");
     $Works=new DB("resume_works");
     $Contact=new DB("resume_contact");
     

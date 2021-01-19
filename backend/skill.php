@@ -7,7 +7,7 @@
         <td>刪除</td>
     </tr>
     <?php
-    $rows = $Skill_g->all();
+    $rows = $Skill->all();
     foreach ($rows as $row) {
     ?><tr>
             <td><img src="img/<?= $row['img']; ?>" style="height: 300px;"></td>

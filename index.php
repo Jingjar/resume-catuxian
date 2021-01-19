@@ -67,7 +67,7 @@ include_once "base.php";
         <!-- 關於我 -->
         <div class="border-bottom px-5" id="about">
             <h2><u>關於我</u></h2>
-            <p class="text-left w-50 mx-auto">
+            <p class="text-left w-50 mx-auto pb-3">
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
         </div>
@@ -99,7 +99,7 @@ include_once "base.php";
                         $end_work = substr($exp['end'], 0, -3);
                         $title = $exp['title'];
                         echo "<h5 class='py-2 mb-0'>{$title}<br>{$start_work} - {$end_work}</h5>";
-                        echo "<div class='list-item mb-5 py-2 text-left pl-2'>";
+                        echo "<div class='list-item mb-5 py-2 text-left pl-3'>";
                         $items = $Exp_i->all(['title_id' => $title]);
                         foreach ($items as $item) {
                             echo "<li>{$item['li']}</li>";
@@ -115,125 +115,49 @@ include_once "base.php";
         <!-- 技能 -->
         <div class="w-75 mx-auto mb-2 py-5" id="skills">
             <h2><b>技能</b></h2>
-            <ul class="nav nav-tabs justify-content-around" id="skillTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#frontend" role="tab" aria-selected="true">前端</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#backend" role="tab" aria-selected="false">後端</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#graphic" role="tab" aria-selected="false">美編</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#others" role="tab" aria-selected="false">其他</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="frontend" role="tabpanel">
-                    <div class="row justify-content-around pt-3">
-                        <!-- 前端技能 -->
-                        <?php
-                        $skills = $Skill_f->all(['sh' => 1]);
-                        foreach ($skills as $skill) {
-                        ?>
-                            <div class="card col-md-5 mb-2 skill">
-                                <img src="img/<?= $skill['img'] ?>" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
-                                    <p class="card-text"><?= $skill['text']; ?></p>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="backend" role="tabpanel">
-                    <div class="row justify-content-around pt-3">
-                        <!-- 後端技能 -->
-                        <?php
-                        $skills = $Skill_b->all(['sh' => 1]);
-                        foreach ($skills as $skill) {
-                        ?>
-                            <div class="card col-md-5 mb-2 skill">
-                                <img src="img/<?= $skill['img'] ?>" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
-                                    <p class="card-text"><?= $skill['text']; ?></p>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="graphic" role="tabpanel">
-                    <div class="row justify-content-around pt-3">
-                        <!-- 美編技能 -->
-                        <?php
-                        $skills = $Skill_g->all(['sh' => 1]);
-                        foreach ($skills as $skill) {
-                        ?>
-                            <div class="card col-md-5 mb-2 skill">
-                                <img src="img/<?= $skill['img'] ?>" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
-                                    <p class="card-text"><?= $skill['text']; ?></p>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="others" role="tabpanel">
-                    <div class="row justify-content-around pt-3">
-                        <!-- 其他技能 -->
-                        <?php
-                        $skills = $Skill_o->all(['sh' => 1]);
-                        foreach ($skills as $skill) {
-                        ?>
-                            <div class="card col-md-5 mb-2 skill">
-                                <img src="img/<?= $skill['img'] ?>" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
-                                    <p class="card-text"><?= $skill['text']; ?></p>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 作品集 -->
-            <div class=" mb-2 py-5" id="works">
-                <h2><b>作品集</b></h2>
-                <div class="row d-flex justify-content-around" id="myWorks">
-                    <?php
-                    $works = $Works->all();
-                    foreach ($works as $work) {
-                    ?>
-                        <div class="myWork">
-                            <img src="img/<?= $work['img']; ?>" class="mx-auto">
-                            <div>
-                                <h1><?= $work['title']; ?></h1>
-                                <p><?= $work['text']; ?></p>
-                                <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
-                            </div>
+            <div class="row justify-content-around pt-3">
+                <!-- 前端技能 -->
+                <?php
+                $skills = $Skill->all(['sh' => 1]);
+                foreach ($skills as $skill) {
+                ?>
+                    <div class="card col-md-5 mb-2 skill">
+                        <img src="img/<?= $skill['img'] ?>" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
+                            <p class="card-text"><?= $skill['text']; ?></p>
                         </div>
-                    <?php
-                    }
-                    ?>
-                </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
-        <!-- 聯絡我 -->
+
+        <!-- 作品集 -->
+        <div class=" mb-2 py-5" id="works">
+            <h2><b>作品集</b></h2>
+            <div class="row d-flex justify-content-around" id="myWorks">
+                <?php
+                $works = $Works->all();
+                foreach ($works as $work) {
+                ?>
+                    <div class="myWork">
+                        <img src="img/<?= $work['img']; ?>" class="mx-auto">
+                        <div>
+                            <h1><?= $work['title']; ?></h1>
+                            <p><?= $work['text']; ?></p>
+                            <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
         <footer id="contact" class="text-center py-5 bg-dark text-white container">
             <h5 class="mb-5">聯絡我</h5>
-            <form action="" class="row text-left px-5">
+            <form action="add_visitors" class="row text-left px-5">
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="yourName">訪客姓名</label>
                     <div class="input-group mb-3">
@@ -262,11 +186,13 @@ include_once "base.php";
                     <label for="yourMessage">您的訊息</label>
                     <textarea class="form-control" id="yourMessage" rows="3" placeholder="請輸入您的訊息"></textarea>
                 </div>
-                <small class="text-muted col-12 text-center border-bottom pb-3">請如實填寫便於信件回覆，我們保證不隨意公開您的留言資訊</small>
+                <small class="text-muted col-12 text-center border-bottom pb-3">請填寫正確聯絡方式，以便回復您的訊息</small>
                 <button type="submit" class="btn btn-primary mx-auto my-3">確認送出</button>
             </form>
         </footer>
     </div>
+    <!-- 聯絡我 -->
+
 
     <small class="text-muted mb-1">Copyright © 2021 <a href="login.html" style="color:#6c757d;">YE,YU-XIAN</a> all rights
         reserved.</small>

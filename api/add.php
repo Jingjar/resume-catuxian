@@ -33,10 +33,7 @@
             $data['start']=$_POST['start'];
             $data['end']=$_POST['end'];
         break;
-        case "resume_skills_frontend":
-        case "resume_skills_backend":
-        case "resume_skills_graphic":
-        case "resume_skills_others":
+        case "resume_skills":
             $data['title']=$_POST['title'];
         break;
         case "resume_works":
