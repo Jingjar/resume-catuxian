@@ -50,7 +50,7 @@ include_once "base.php";
         </div>
     </nav>
     <div class="container text-center mt-0 mx-auto bg-white p-0 w-lg-50 w-md-75 w-sm-100">
-        <header class="my-5 pt-5 border-bottom bg-dark text-white" id="myHeader">
+        <header class="mt-5 pt-5 border-bottom bg-dark text-white" id="myHeader">
             <h1 class="pt-3">I am a web developer</h1>
             <img src="img/<?= $Img->find(['sh' => 1])['img']; ?>" class="rounded mx-auto d-block rounded-circle mb-2 d-block" style="width:150px;height:150px">
 
@@ -65,9 +65,9 @@ include_once "base.php";
             <p>YE,YU-XIAN</p>
         </header>
         <!-- 關於我 -->
-        <div class="border-bottom p-5" id="about">
+        <div class="border-bottom px-5" id="about">
             <h2><u>關於我</u></h2>
-            <p class="text-left">
+            <p class="text-left w-50 mx-auto">
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
         </div>
@@ -80,7 +80,7 @@ include_once "base.php";
                 <div class="mb-2">
                     <?php
 
-                    $exps_e = $Exp_e->all(['sh' => 1]);
+                    $exps_e = $Exp_e->q("select * from `resume_exp_edu` order by end_e desc");
                     foreach ($exps_e as $exp_e) {
                         $start_edu = substr($exp_e['start_e'], 0, -3);
                         $end_edu = substr($exp_e['end_e'], 0, -3);
@@ -93,13 +93,13 @@ include_once "base.php";
                 <h4 class="py-2 mb-0">工作經歷</h4>
                 <div>
                     <?php
-                    $exps = $Exp_t->all(['sh' => 1]);
+                    $exps = $Exp_t->q("select * from `resume_exp_title` order by end desc");
                     foreach ($exps as $exp) {
                         $start_work = substr($exp['start'], 0, -3);
                         $end_work = substr($exp['end'], 0, -3);
                         $title = $exp['title'];
-                        echo "<h5 class='py-2 mb-0'>{$title}，{$start_work} - {$end_work}</h5>";
-                        echo "<div class='list-item mb-5 py-2'>";
+                        echo "<h5 class='py-2 mb-0'>{$title}<br>{$start_work} - {$end_work}</h5>";
+                        echo "<div class='list-item mb-5 py-2 text-left pl-2'>";
                         $items = $Exp_i->all(['title_id' => $title]);
                         foreach ($items as $item) {
                             echo "<li>{$item['li']}</li>";

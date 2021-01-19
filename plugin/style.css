@@ -20,12 +20,16 @@ a:hover {
 
 
 /*NavBar*/
-
 .navbar {
     background-color: #f8f9fa;
 }
 
 /*標題區*/
+
+/*關於我*/
+#about p{
+    line-height: 2rem;
+}
 
 /*學經歷*/
 
