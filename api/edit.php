@@ -15,6 +15,7 @@
     //         echo "</pre>";
     //     }
     // }
+    echo $table;
     $db=new DB($table);
     foreach($_POST['id'] as $key => $id){
         if(!empty($_POST['del']) && in_array($id,$_POST['del'])){
@@ -28,6 +29,7 @@
             switch($table){
                 case "resume_about":
                     $row['about']=$_POST['about'][$key];
+                    $row['sh']=(in_array($id,$_POST['sh']))?1:0;
                 break;
                 case "resume_contact":
                     $row['phone']=$_POST['phone'][$key];
@@ -57,14 +59,20 @@
                     $row['text']=$_POST['text'][$key];
                     $row['href']=$_POST['href'][$key];
                 break;
+                case "resume_job":
+                    $row['job']=$_POST['job'][$key];
+                break;
+                case "resume_visitors":
+                    $row['reply']=(in_array($id,$_POST['reply']))?1:0;
+                break;
                 default:
                 $row['sh']=(in_array($id,$_POST['sh']))?1:0;
             }
         $db->save($row);
         }
-        // echo"<pre>";
-        // print_r($row);
-        // echo "</pre>";
+        echo"<pre>";
+        print_r($row);
+        echo "</pre>";
     }
     to("../backend.php?do={$_POST['table']}");
 ?>

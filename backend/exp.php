@@ -1,12 +1,12 @@
-<table>
-    <tr>
+<table class="mx-auto">
+    <thead>
         <td>工作經歷</td>
         <td>開始時間</td>
         <td>結束時間</td>
         <td>顯示</td>
         <td>刪除</td>
         <td>修改</td>
-    </tr>
+    </thead>
     <?php
     $rows = $Exp_t->all();
     foreach ($rows as $key => $row) {

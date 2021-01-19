@@ -62,6 +62,7 @@ include_once "base.php";
                 <i class="fab fa-codepen fa-2x"></i>
             </a>
             <h2 class="py-2">葉昱顯</h2>
+            <p><?=$Job->find(1)['job'];?></p>
             <p>YE,YU-XIAN</p>
         </header>
         <!-- 關於我 -->
@@ -72,7 +73,7 @@ include_once "base.php";
             </p>
         </div>
         <!-- 學經歷 -->
-        <div class="border-bottom mb-2 py-5" id="exp">
+        <div class="border-bottom mb-2 pb-5" id="exp">
 
             <div class="list w-50 mx-auto">
                 <h2 class="bg-white py-2 mb-0">學經歷</h2>
@@ -113,19 +114,18 @@ include_once "base.php";
             <div></div>
         </div>
         <!-- 技能 -->
-        <div class="w-75 mx-auto mb-2 py-5" id="skills">
+        <div class=" mx-auto mb-2 py-5" id="skills">
             <h2><b>技能</b></h2>
             <div class="row justify-content-around pt-3">
-                <!-- 前端技能 -->
                 <?php
                 $skills = $Skill->all(['sh' => 1]);
                 foreach ($skills as $skill) {
                 ?>
-                    <div class="card col-md-5 mb-2 skill">
+                    <div class="card col-lg-3 col-md-4 col-sm-5 mb-2 skill col-sm-6">
                         <img src="img/<?= $skill['img'] ?>" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title border-bottom"><?= $skill['title']; ?></h5>
-                            <p class="card-text"><?= $skill['text']; ?></p>
+                            <p class="card-text text-left"><?= $skill['text']; ?></p>
                         </div>
                     </div>
                 <?php
@@ -157,34 +157,34 @@ include_once "base.php";
         </div>
         <footer id="contact" class="text-center py-5 bg-dark text-white container">
             <h5 class="mb-5">聯絡我</h5>
-            <form action="add_visitors" class="row text-left px-5">
+            <form action="api/add_visitors.php" class="row text-left px-5" method="post">
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="yourName">訪客姓名</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="yourName" placeholder="您的姓名" name="Name" required>
+                        <input type="text" class="form-control" id="yourName" placeholder="您的姓名" name="name" required>
                     </div>
                 </div>
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="yourPhone">連絡電話</label>
                     <div class="input-group mb-3">
-                        <input type="tel" class="form-control" id="yourPhone" placeholder="您的連絡電話" name="Phone" required>
+                        <input type="tel" class="form-control" id="yourPhone" placeholder="您的連絡電話" name="phone" required>
                     </div>
                 </div>
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="yourEmail">電子信箱</label>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" id="yourEmail" placeholder="您的電子信箱" name="Email" required>
+                        <input type="email" class="form-control" id="yourEmail" placeholder="您的電子信箱" name="email" required>
                     </div>
                 </div>
                 <div class="form-group col-sm-12 col-md-6">
                     <label for="yourSubject">訊息主旨</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="yourSubject" placeholder="訊息主旨" name="Subject" required>
+                        <input type="text" class="form-control" id="yourSubject" placeholder="訊息主旨" name="subject" required>
                     </div>
                 </div>
                 <div class="form-group col-12">
                     <label for="yourMessage">您的訊息</label>
-                    <textarea class="form-control" id="yourMessage" rows="3" placeholder="請輸入您的訊息"></textarea>
+                    <textarea class="form-control" id="yourMessage" rows="3" placeholder="請輸入您的訊息" name="message"></textarea>
                 </div>
                 <small class="text-muted col-12 text-center border-bottom pb-3">請填寫正確聯絡方式，以便回復您的訊息</small>
                 <button type="submit" class="btn btn-primary mx-auto my-3">確認送出</button>

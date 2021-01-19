@@ -19,7 +19,8 @@
         'exp_e'=>'resume_exp_edu',
         'skill'=>'resume_skills',
         'works'=>'resume_works',
-        'contact'=>'resume_contact'
+        'visitors'=>'resume_visitors',
+        'job'=>'resume_job'
     ];
     $Login=new DB("resume_login");
     $Img=new DB("resume_img");
@@ -29,7 +30,8 @@
     $Exp_e=new DB("resume_exp_edu");
     $Skill=new DB("resume_skills");
     $Works=new DB("resume_works");
-    $Contact=new DB("resume_contact");
+    $Job=new DB("resume_job");
+    $Visitors=new DB("resume_visitors");
     
     class DB{
         protected $table;
@@ -113,7 +115,7 @@
             }else{
                 $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values ('".implode("','",$arr)."')";
             }
-            // echo $sql;
+            echo $sql;
             return $this->pdo->exec($sql);
         }
 

@@ -111,9 +111,14 @@ a:hover {
     transform: translateY(-10px);
     transition: 0.5s;
 }
-
+#skills{
+    width: 90%;
+}
 /*作品集*/
-
+#works{
+    width: 75%;
+    margin: auto;
+}
 .myWork {
     position: relative;
     margin-bottom: 5px;
@@ -175,6 +180,9 @@ footer {
     }
     .list{
         width: 75% !important;
+    }
+    #works{
+        width: 75%;
     }
 }
 

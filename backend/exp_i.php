@@ -3,7 +3,7 @@ include_once "../base.php";
 
 ?>
 <form action="api/edit_items.php" method="post">
-    <table id="li">
+    <table id="li" class="mx-auto">
         <tr>
             <td>工作內容</td>
             <td>刪除</td>
