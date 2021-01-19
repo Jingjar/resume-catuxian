@@ -39,7 +39,7 @@
     }
     $("#click").click(() => {
         $("#modal_title").html("新增經歷");
-        $.get('modal/exp_e.php', function(data) {
+        $.get('modal/exp.php', function(data) {
             $('#box').html(data);
         });
     });
