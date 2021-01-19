@@ -30,6 +30,9 @@ a:hover {
 #about p{
     line-height: 2rem;
 }
+#about{
+    width: 50%;
+}
 
 /*學經歷*/
 
@@ -184,12 +187,18 @@ footer {
     #works{
         width: 75%;
     }
+    #about{
+        width: 75%;
+    }
 }
 
 @media(max-width:400px) {
     .myWork img {
         width: 300px;
         height: 300px;
+    }
+    #about{
+        width: 100% !important;
     }
 }
 

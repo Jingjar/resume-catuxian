@@ -66,9 +66,9 @@ include_once "base.php";
             <p>YE,YU-XIAN</p>
         </header>
         <!-- 關於我 -->
-        <div class="border-bottom px-5" id="about">
+        <div class="border-bottom px-5 mx-auto  " id="about">
             <h2><u>關於我</u></h2>
-            <p class="text-left w-50 mx-auto pb-3">
+            <p class="text-left  pb-3">
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
         </div>
