@@ -24,8 +24,3 @@
         }
     }
 ?>
-<script>
-    window.onload=function(){
-        window.top.close()
-    }
-</script>

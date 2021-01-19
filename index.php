@@ -210,47 +210,22 @@ include_once "base.php";
             <!-- 作品集 -->
             <div class=" mb-2 py-5" id="works">
                 <h2><b>作品集</b></h2>
-                <div id="carouselExampleControls" class="carousel slide my-5" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <?php
-                        $works = $Works->all();
-                        foreach ($works as $key => $work) {
-                            // echo $key;
-                            if ($key == 0) {
-                        ?>
-                                <div class="myWork carousel-item active">
-                                    <img src="img/<?= $work['img']; ?>" class="mx-auto">
-                                    <div>
-                                        <h1><?= $work['title']; ?></h1>
-                                        <p><?= $work['text']; ?></p>
-                                        <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
-                                    </div>
-                                </div>
-
-                            <?php
-                            } else {
-                            ?>
-                                <div class="myWork carousel-item">
-                                    <img src="img/<?= $work['img']; ?>" class="mx-auto">
-                                    <div>
-                                        <h1><?= $work['title']; ?></h1>
-                                        <p><?= $work['text']; ?></p>
-                                        <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                <div class="row d-flex justify-content-around" id="myWorks">
+                    <?php
+                    $works = $Works->all();
+                    foreach ($works as $work) {
+                    ?>
+                        <div class="myWork">
+                            <img src="img/<?= $work['img']; ?>" class="mx-auto">
+                            <div>
+                                <h1><?= $work['title']; ?></h1>
+                                <p><?= $work['text']; ?></p>
+                                <a href="<?= $work['href']; ?>" target="_blank" style="color:white"><i class="fas fa-link fa-2x"></i></a>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

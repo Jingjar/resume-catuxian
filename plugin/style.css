@@ -14,10 +14,10 @@ a:hover {
 .container {
     box-shadow: 1px 1px 3px black
 }
-
-li {
-    line-height: 2rem;
+:focus{
+    outline: none !important;
 }
+
 
 /*NavBar*/
 
@@ -50,7 +50,10 @@ li {
     border: 2px solid black;
     border-radius: .25rem;
 }
-
+.list-item li {
+    line-height: 2rem;
+    list-style:square;
+}
 #exp {
     position: relative;
     z-index: 1;
@@ -104,6 +107,27 @@ li {
     transform: translateY(-10px);
     transition: 0.5s;
 }
+#skillTab{
+    border-bottom: 2px solid #000;
+}
+.nav-tabs .nav-item {
+    margin-bottom: 0px;
+}
+#skills .nav-tabs .nav-link {
+    flex: 0 1 15%;
+    box-shadow: 1px -1px 2px 0px #8888;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background: #ccc;
+    color: white;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+    font-weight: bolder;
+    background-color: black !important;
+    border-color: #dee2e6 #dee2e6 #fff;
+    transition: 0.5s linear;
+}
 
 /*作品集*/
 
@@ -118,8 +142,10 @@ li {
 }
 
 .myWork img {
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
+    /* padding: 2rem; */
+    margin: auto;
 }
 
 .myWork div {
@@ -155,18 +181,14 @@ footer {
 #contact h5{
     background-color: #343a40!important;
 }
-#top {
-    position: fixed;
-    bottom: 0;
-    right: 5px;
-}
+
 
 /*RWD*/
 
 @media(max-width:768px) {
     .myWork img {
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
     }
     .list{
         width: 75% !important;
@@ -175,8 +197,8 @@ footer {
 
 @media(max-width:400px) {
     .myWork img {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
 }
 

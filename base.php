@@ -21,6 +21,9 @@
         'exp_i'=>'resume_exp_item',
         'exp_e'=>'resume_exp_edu',
         'skill_f'=>'resume_skills_frontend',
+        'skill_b'=>'resume_skills_backend',
+        'skill_g'=>'resume_skills_graphic',
+        'skill_o'=>'resume_skills_others',
         'works'=>'resume_works',
         'contact'=>'resume_contact'
     ];

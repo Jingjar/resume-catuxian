@@ -10,6 +10,7 @@
     $rows = $Exp_e->all();
     foreach ($rows as $row) {
     ?><tr>
+            <td><img src="img/<?= $row['img']; ?>" style="height: 300px;"></td>
             <td><input type="text" name="edu[]" value="<?= $row['edu']; ?>"></td>
             <td><input type="date" name="start_e[]" value="<?= $row['start_e']; ?>"></td>
             <td><input type="date" name="end_e[]" value="<?= $row['end_e']; ?>"></td>

@@ -17,7 +17,11 @@
             <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? "checked" : ""; ?>></td>
             <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
             <td>
-                <a class="btn btn-primary" href="backend/exp_i.php?table=exp_i&exp_t=<?=$row['title'];?>" target="_blank">編輯</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exp" onclick="change_modal(`backend/exp_i.php?table=exp_i&exp_t=<?= $row['title']; ?>`)">
+                    編輯
+                </button>
+                <!-- Modal -->
             </td>
             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
 
@@ -26,3 +30,17 @@
     }
     ?>
 </table>
+<script>
+    function change_modal(url) {
+        $.get(url, function(data) {
+            $('#box').html(data);
+        });
+        $("#modal_title").html("編輯工作內容");
+    }
+    $("#click").click(() => {
+        $("#modal_title").html("新增經歷");
+        $.get('modal/exp_e.php', function(data) {
+            $('#box').html(data);
+        });
+    });
+</script>

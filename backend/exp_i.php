@@ -26,7 +26,6 @@ include_once "../base.php";
     <input type="submit" value="確認送出">
     <input type="reset" value="重設">
     <button type="button" onclick="moreOp()">新增更多事項</button>
-    <button type="button" onclick="window.top.close()">關閉</button>
 </form>
 
 <script src="../plugin/jquery-3.5.1.min.js"></script>
