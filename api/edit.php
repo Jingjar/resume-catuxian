@@ -26,6 +26,9 @@
             }
 
             switch($table){
+                case "resume_about":
+                    $row['about']=$_POST['about'][$key];
+                break;
                 case "resume_contact":
                     $row['phone']=$_POST['phone'][$key];
                     $row['email']=$_POST['email'][$key];

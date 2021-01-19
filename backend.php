@@ -33,7 +33,7 @@ $file = "backend/" . $do . ".php";
 <?php
     if($do!='contact'){
 ?>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exp">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exp" id="click">
     <?= $addstr[$do]; ?>
 </button>
 <?php        
