@@ -23,4 +23,5 @@
             }
         }
     }
+    to("../backend.php?do=exp");
 ?>

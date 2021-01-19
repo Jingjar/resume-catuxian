@@ -2,7 +2,7 @@
 include_once "../base.php";
 
 ?>
-<form action="../api/edit_items.php" method="post">
+<form action="api/edit_items.php" method="post">
     <table id="li">
         <tr>
             <td>工作內容</td>
@@ -34,7 +34,6 @@ include_once "../base.php";
         let op = `
         <tr>
             <td><input type="text" name="li[]" value=""></td>
-            <td><input type="checkbox" name="del[]"></td>
             <input type="hidden" name="id[]" value="">
         </tr>
         `

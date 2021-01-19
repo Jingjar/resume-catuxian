@@ -102,7 +102,7 @@ include_once "base.php";
                         echo "<div class='list-item mb-5 py-2'>";
                         $items = $Exp_i->all(['title_id' => $title]);
                         foreach ($items as $item) {
-                            echo "<p>{$item['li']}</p>";
+                            echo "<li>{$item['li']}</li>";
                         }
                         echo "</div>";
                     }
