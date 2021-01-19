@@ -65,9 +65,9 @@ include_once "base.php";
             <p>YE,YU-XIAN</p>
         </header>
         <!-- 關於我 -->
-        <div class="border-bottom py-5" id="about">
+        <div class="border-bottom p-5" id="about">
             <h2><u>關於我</u></h2>
-            <p>
+            <p class="text-left">
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
         </div>
@@ -76,8 +76,22 @@ include_once "base.php";
 
             <div class="list w-50 mx-auto">
                 <h2 class="bg-white py-2 mb-0">學經歷</h2>
+                <h4 class="py-2 mb-0">學歷</h4>
+                <div class="mb-2">
+                    <?php
+
+                    $exps_e = $Exp_e->all(['sh' => 1]);
+                    foreach ($exps_e as $exp_e) {
+                        $start_edu = substr($exp_e['start_e'], 0, -3);
+                        $end_edu = substr($exp_e['end_e'], 0, -3);
+                        echo "<h5 class='py-2 mb-0'>{$exp_e['edu']}，{$start_edu} - {$end_edu}</h5>";
+                        echo "<img src='img/{$exp_e['img']}' class='rounded-circle edu mb-5 bg-white' style='width:150px;height:150px'>";
+                    }
+
+                    ?>
+                </div>
+                <h4 class="py-2 mb-0">工作經歷</h4>
                 <div>
-                    <h4 class="py-2 mb-0">工作經歷</h4>
                     <?php
                     $exps = $Exp_t->all(['sh' => 1]);
                     foreach ($exps as $exp) {
@@ -94,20 +108,7 @@ include_once "base.php";
                     }
                     ?>
                 </div>
-                <h4 class="py-2 mb-0">學歷</h4>
-                <div class="mb-2">
-                    <?php
 
-                    $exps_e = $Exp_e->all(['sh' => 1]);
-                    foreach ($exps_e as $exp_e) {
-                        $start_edu = substr($exp_e['start_e'], 0, -3);
-                        $end_edu = substr($exp_e['end_e'], 0, -3);
-                        echo "<h5 class='py-2 mb-0'>{$exp_e['edu']}，{$start_edu} - {$end_edu}</h5>";
-                        echo "<img src='https://picsum.photos/150/150/?random=1' class='rounded-circle edu mb-5 bg-white'>";
-                    }
-
-                    ?>
-                </div>
             </div>
             <div></div>
         </div>
@@ -269,9 +270,6 @@ include_once "base.php";
 
     <small class="text-muted mb-1">Copyright © 2021 <a href="login.html" style="color:#6c757d;">YE,YU-XIAN</a> all rights
         reserved.</small>
-    <a href="#myHeader" id="top" class="btn ">
-        <i class="fas fa-angle-double-up fa-2x"></i>
-    </a>
 </body>
 
 </html>

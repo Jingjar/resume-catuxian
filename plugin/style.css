@@ -187,8 +187,8 @@ footer {
 
 @media(max-width:768px) {
     .myWork img {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
     }
     .list{
         width: 75% !important;
@@ -197,8 +197,8 @@ footer {
 
 @media(max-width:400px) {
     .myWork img {
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
     }
 }
 

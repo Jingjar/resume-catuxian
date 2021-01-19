@@ -1,5 +1,6 @@
 <form action="api/add.php" method="post" enctype="multipart/form-data">
 <div>
+    <p> 上傳圖片:<input type="file" name="img"></p>
     <p>新增學歷：<input type="text" name="edu"></p>
     <p>開始日期：<input type="date" name="start_e"></p>
     <p>結束日期：<input type="date" name="end_e"></p>
