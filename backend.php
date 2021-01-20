@@ -30,7 +30,6 @@ $file = "backend/" . $do . ".php";
             text-align: center;
             background: #ccc;
         }
-
         .user a {
             text-align: center;
             color: white;
@@ -47,8 +46,11 @@ $file = "backend/" . $do . ".php";
 </head>
 
 <body>
+    <nav class="myNavbar">
+        
+    </nav>
     <aside class="user bg-dark">
-        <img src="img/<?= $Img->find(['sh' => 1])['img']; ?>" class="rounded mx-auto d-block rounded-circle my-2 d-block" style="width:150px;height:150px">
+        <img src="img/<?= $Img->find(['sh' => 1])['img']; ?>" class="rounded mx-auto d-none d-md-block rounded-circle my-2 " style="width:150px;height:150px">
         <a class="btn" href="?do=img">我的大頭貼</a>
         <a class="btn" href="?do=about">關於我</a>
         <a class="btn" href="?do=exp">經歷</a>
@@ -69,7 +71,7 @@ $file = "backend/" . $do . ".php";
         ?>
         <a class="btn" href="api/logout.php">登出</a>
     </aside>
-    <section class="container mx-auto w-75 float-right text-center mt-2 main">
+    <section class="container mx-auto w-75 text-center mt-2 main">
         <h5 class="font-weight-bold pb-2">嗨!<?=$_SESSION['login'];?></h5>
         <div class="modal fade" id="exp" tabindex="-1">
             <div class="modal-dialog">
