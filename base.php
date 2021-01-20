@@ -60,7 +60,6 @@
             if(isset($arg[1])){
                 $sql.=$sql[1];
             }
-            // echo $sql;
             return $this->pdo->query($sql)->fetchAll();
         }
         function count(...$arg){
