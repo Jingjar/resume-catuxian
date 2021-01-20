@@ -21,10 +21,10 @@ include_once "base.php";
     <script src="plugin/slick.min.js"></script>
 </head>
 
-<body class="text-center">
+<body class="text-center bg-secondary">
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-1">
-        <a class="navbar-brand" href="index.php">Navbar</a>
+        <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="logo" style="height:35px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,7 +67,7 @@ include_once "base.php";
         </header>
         <!-- 關於我 -->
         <div class="border-bottom px-5 mx-auto  " id="about">
-            <h2><u>關於我</u></h2>
+            <h2><b>關於我</b></h2>
             <p class="text-left  pb-3">
                 <?= $About->find(['sh' => 1])['about']; ?>
             </p>
@@ -76,7 +76,7 @@ include_once "base.php";
         <div class="border-bottom mb-2 pb-5" id="exp">
 
             <div class="list w-50 mx-auto">
-                <h2 class="bg-white py-2 mb-0">學經歷</h2>
+                <h2 class="bg-white py-2 mb-0"><b>學經歷</b></h2>
                 <h4 class="py-2 mb-0">學歷</h4>
                 <div class="mb-2">
                     <?php
@@ -194,7 +194,7 @@ include_once "base.php";
     <!-- 聯絡我 -->
 
 
-    <small class="text-muted mb-1">Copyright © 2021 <a href="login.html" style="color:#6c757d;">YE,YU-XIAN</a> all rights
+    <small class="text-white mb-1">Copyright © 2021 <a href="login.html" style="color:#fff;">YE,YU-XIAN</a> all rights
         reserved.</small>
 </body>
 
